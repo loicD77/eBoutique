@@ -80,6 +80,16 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 
  _"Un repository est une classe qui permet de faire des requêtes sur une table (par l'intérmédiaire de l'eentité associée) de la base de données. Dans Symfony, lorsque vous ajoutez une entité, un repository est automatiquement créé."_
 
+ ### 3) PanierController.php
+
+
+ - Ici j'ai découvers et utilisé la méthode addFlash qui permet d'afficher des messages à l'utilisateur , on a un texte simple qui indique à l'utilisateur de se connecter ou s'inscrire, on redirige vers la route du login de ce projet avec **redirectRoRoute(`app_login`);**
+
+ - Dans ce code c'est la méthode POST qui permet de valider et vider le panier : elle écrit les paramètres URL dans la requêtes HTTP pour le serveur.
+
+ - Response facilite la création d'une réponse HTTP selon laconsole.dev/formations/symfony/controleurs
+ -Request est la requête reçue  (Selon Openclassroom : https://openclassrooms.com/fr/courses/8264046-construisez-un-site-web-a-laide-du-framework-symfony-7/8400206-comprenez-le-protocole-http-dans-symfony ) 
+
 
 
 
