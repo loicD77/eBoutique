@@ -4,26 +4,6 @@ Licence Pro Projet Web et Mobile (L3) – Sorbonne Université
 
 ---
 
-## 🧭 Table des Matières
-
-1. [Présentation](#présentation)  
-2. [Objectif de mon site "LEFA" fait sur Symfony](#objectif-de-mon-site-lefa-fait-sur-symfony)  
-3. [Résumé des fonctionnalités](#résumé-des-fonctionnalités)  
-4. [(Hors Sujet) Explication détaillée de mon code](#hors-sujet-explication-détaillée-de-mon-code)  
-   - [I) Controllers](#i-controllers)  
-     - [1) HomeController.php](#1-homecontrollerphp)  
-     - [2) OrderController.php](#2-ordercontrollerphp)  
-     - [3) PanierController.php](#3-paniercontrollerphp)  
-   - [II) Tables SQL](#ii-tables-sql)  
-     - [Category](#category)  
-     - [Formations](#formations)  
-     - [Orders](#orders)  
-     - [User](#user)  
-   - [III) Twig](#iii-twig)  
-     - [a) adminformations](#a-adminformations)  
-5. [Auteur](#auteur)
-
-
 ## Présentation
 
 LEFA est une plateforme Symfony de vente de formations en ligne, développée dans le cadre de ma licence professionnelle. Ce projet représente pour moi un défi personnel et technique, entrepris malgré l'absence de stage et un niveau encore en apprentissage. J’y ai mis toute ma persévérance et ma volonté de progresser en développement web.
@@ -66,6 +46,8 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 
 ## (HORS SUJET) Explication détaillé de mon code :
 
+
+## I) Controller
 
 
 ### 1) HomeController.php
@@ -181,6 +163,76 @@ CREATE TABLE user (
 ```
 
 - Le type de donné le plus compliqué à retenir pour ma part est DATETIME, je sais que VARCHAR EST L EQUIVALENT DE STRING 
+- roles est particulié avec JSON aussi
+
+
+## III) Twig
+
+
+### 1) base.html.twig
+
+
+```
+  <title>{% block title %}LEFA{% endblock %}</title>
+````
+
+- Ici on a une directive Twig qui ouvre un bloc nommé title **({% block title %})** et une directive Twig qui ferme le bloc title **{% endblock %}** c'est le titre "LEFA" de notre projet symfony .
+
+```
+{% block stylesheets %}{% endblock %}
+```
+
+ - permet aux **templates enfants** (ceux qui étendent mon base.html.twig) d'ajouter des fichiers CSS personnels ou balise style sans modifier ce fichier twig servant de base  
+
+
+```
+<a class="navbar-brand" href="{{ path('home') }}">LEFA</a>
+```
+
+- Quand on clique sur LEFA je retourne sur la page d'accueil grâce au chemin home **patch('home')**
+
+
+```
+<a href="/boutique/adminformations" class="nav-link">🛠 Gérer Formations</a>
+```
+
+* Ici ça nous emmène automatiquement sur la page twig index de adminformations , on pourrat modifier (edit de adminformations ), ajouter (new) et supprimer (code ci-dessous)   comme un crud 
+
+
+
+```
+<form method="post" action="{{ path('admin_formation_delete', {id: formation.id}) }}" style="display:inline-block;" onsubmit="return confirm('Confirmer la suppression ?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formation.id) }}">
+                    <button class="btn btn-sm btn-danger">Supprimer</button>
+                </form>
+```                
+
+
+- method="post" : HTML ne supporte pas DELETE, donc on simule.
+
+- action="{{ path(...) }}" : génère l’URL de suppression avec l’ID.
+
+- _method = DELETE : simulé via champ caché pour Symfony.
+
+- _token : protection CSRF avec un token unique.
+
+- confirm(...) : popup de confirmation JavaScript.
+
+- button Supprimer : bouton rouge Bootstrap pour déclencher la suppression.
+
+### 2) adminformations 
+
+
+
+
+
+```
+      <a class="navbar-brand" href="{{ path('home') }}">LEFA</a>
+```  vff
+
+
+- Quand admin fonctionne j'ai 3 fichiers twig qui lui correspond (edit, index, new)
 
 
 **Loïc Darras**  
