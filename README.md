@@ -196,7 +196,12 @@ CREATE TABLE user (
 <a href="/boutique/adminformations" class="nav-link">🛠 Gérer Formations</a>
 ```
 
-* Ici ça nous emmène automatiquement sur la page twig index de adminformations , on pourrat modifier (edit de adminformations ), ajouter (new) et supprimer (code ci-dessous)   comme un crud 
+* Ici ça nous emmène automatiquement sur la page twig index de adminformations , 
+
+### 2) adminformations 
+
+
+On pourra modifier (edit de adminformations ), ajouter (new) et supprimer (code ci-dessous)   comme un crud 
 
 
 
@@ -221,21 +226,20 @@ CREATE TABLE user (
 
 - button Supprimer : bouton rouge Bootstrap pour déclencher la suppression.
 
-### 2) adminformations 
-
 
 
 
 
 ```
       <a class="navbar-brand" href="{{ path('home') }}">LEFA</a>
-```  vff
+```  
 
 
-- Quand admin fonctionne j'ai 3 fichiers twig qui lui correspond (edit, index, new)
+- Quand admin fonctionne j'ai donc  3 fichiers twig qui lui correspond (edit, index, new)
 
 
 **Loïc Darras**  
 Licence Pro Projet Web et Mobile, Sorbonne Université  
+
 
 
