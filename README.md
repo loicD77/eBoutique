@@ -235,7 +235,11 @@ On pourra modifier (edit de adminformations ), ajouter (new) et supprimer (code 
 ```  
 
 
-- Quand admin fonctionne j'ai donc  3 fichiers twig qui lui correspond (edit, index, new)
+- Quand admin fonctionne j'ai donc  3 fichiers twig qui lui correspond (edit, index, new
+
+
+
+### 3) catalogue
 
 
 **Loïc Darras**  
