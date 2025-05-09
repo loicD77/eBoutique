@@ -93,9 +93,77 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 
 
 
+ 
+## II) Tables:
+### Commandes sql
 
+#### Category
+
+
+
+```
+CREATE TABLE category (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+```
+
+#### Formations 
+```
+CREATE TABLE formations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    category_id INT,
+    image_url VARCHAR(255),
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+  
+);
+
+```
+
+#### Orders 
+
+```
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(50),
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    address VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+
+```
+
+
+
+#### User
+
+```
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    is_verified BOOLEAN DEFAULT 0,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    roles JSON NOT NULL
+);
+
+```
+
+- Le type de donné le plus compliqué à retenir pour ma part est DATETIME, je sais que VARCHAR EST L EQUIVALENT DE STRING 
 
 
 **Loïc Darras**  
 Licence Pro Projet Web et Mobile, Sorbonne Université  
+
 
