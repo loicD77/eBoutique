@@ -1,0 +1,3 @@
+admin_formation:
+    resource: '../../src/Controller/FormationAdminController.php'
+    type: attribute

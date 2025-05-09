@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande confirmée{% endblock %}
+
+{% block body %}
+<div class="container" style="margin-top: 50px;">
+    <h1>Commande confirmée</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <p>Merci pour votre confiance ! Vous recevrez un e-mail de confirmation très prochainement.</p>
+</div>
+{% endblock %}

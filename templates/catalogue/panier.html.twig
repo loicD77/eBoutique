@@ -1,0 +1,217 @@
+{% block title %}Votre Panier - LEFA{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #2c3e50;
+        padding: 20px;
+        color: white;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        color: #ecf0f1;
+        margin-right: 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    table thead {
+        background-color: #34495e;
+        color: white;
+    }
+
+    table th, table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tbody tr:hover {
+        background-color: #f2f2f2;
+    }
+
+    .actions a {
+        margin: 0 5px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #3498db;
+        transition: color 0.3s;
+    }
+
+    .actions a:hover {
+        color: #2980b9;
+    }
+
+    .totals {
+        text-align: right;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+
+    .confirm-btn, .actions-btn {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .btn-success {
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-success:hover {
+        background-color: #27ae60;
+    }
+
+    .btn-danger {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #c0392b;
+    }
+
+    .btn-secondary {
+        background-color: #7f8c8d;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .btn-secondary:hover {
+        background-color: #636e72;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #ecf0f1;
+        font-size: 14px;
+        color: #7f8c8d;
+    }
+
+    .empty {
+        text-align: center;
+        font-size: 20px;
+        color: #7f8c8d;
+        margin: 40px 0;
+    }
+</style>
+
+<header>
+    <h1>🛒 Votre Panier</h1>
+    <nav>
+        <a href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('contact') }}">Contact</a>
+        <a href="{{ path('about') }}">À propos</a>
+        <a href="{{ path('app_catalogue') }}">Formations</a>
+    </nav>
+</header>
+
+<div class="container">
+    {% if items is not empty %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Formation</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.formation.title }}</td>
+                        <td>{{ item.formation.price }} €</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.total }} €</td>
+                        <td class="actions">
+                            <a href="{{ path('panier_ajouter', {'id': item.formation.id}) }}">➕</a>
+                            <a href="{{ path('panier_diminuer', {'id': item.formation.id}) }}">➖</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="totals">
+            <p>🚚 Frais de transport : <strong>{{ transport }} €</strong></p>
+            <p><strong>Total général : {{ grand_total }} €</strong></p>
+        </div>
+
+        <div class="confirm-btn">
+            {% if app.user %}
+                <form action="{{ path('panier_valider') }}" method="post" style="display: inline-block;">
+                    <button type="submit" class="btn btn-success">✅ Confirmer la commande</button>
+                </form>
+
+                <form action="{{ path('panier_vider') }}" method="post" style="display: inline-block; margin-left: 10px;">
+                    <button type="submit" class="btn btn-danger">🗑️ Vider le panier</button>
+                </form>
+
+                <a href="{{ path('order_index') }}" class="btn btn-secondary">📦 Voir mes commandes</a>
+            {% else %}
+                <p class="mt-4 text-danger">
+                    <strong>Vous devez être connecté pour confirmer votre commande.</strong><br>
+                    <a href="{{ path('app_login') }}">Connexion</a> ou
+                    <a href="{{ path('user_create') }}">Créer un compte</a>
+                </p>
+            {% endif %}
+        </div>
+    {% else %}
+        <p class="empty">🛍️ Votre panier est vide pour le moment.</p>
+    {% endif %}
+</div>
+
+<footer>
+    &copy; {{ "now"|date("Y") }} LEFA - Tous droits réservés
+</footer>
+{% endblock %}

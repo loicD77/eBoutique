@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if app.user %}
+        Bienvenue {{ app.user.getFullName() }} - LEFA
+    {% else %}
+        Accueil - LEFA
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #002147;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #002147;
+            color: white;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Bienvenue sur LEFA</h1>
+        <p>L'excellence en un clic !</p>
+        <nav>
+            <a href="{{ path('home') }}">Accueil</a>
+            <a href="{{ path('contact') }}">Contact</a>
+            <a href="{{ path('about') }}">À propos</a>
+            <a href="{{ path('panier_index') }}" class="cart-icon">
+                🛒
+                <span class="cart-count">{{ app.session.get('panier_count')|default(0) }}</span>
+            </a>
+            <a href="{{ path('app_catalogue') }}">Formations</a>
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Connexion</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        {% if app.user %}
+            <div class="alert alert-info text-end">
+                Bonjour, <strong>{{ app.user.getFullName() }}</strong> ! 
+            </div>
+        {% endif %}
+
+        <h2>Notre mission</h2>
+        <p>
+            Bienvenue sur la plateforme de formations <strong>LEFA</strong>, votre boutique en ligne dédiée à l’apprentissage moderne, accessible et de qualité. 
+            Notre mission est de rendre la connaissance accessible à tous, tout en garantissant un haut niveau d’expertise et de pédagogie. 
+            Nous proposons une sélection rigoureuse de formations dans des domaines stratégiques comme le <strong>management</strong>, <strong>l’innovation technologique</strong>, <strong>le développement durable</strong>, et bien d’autres.
+        </p>
+        <p>
+            Convaincus que l’apprentissage doit s’adapter aux besoins du monde professionnel, nous avons conçu chaque formation pour qu’elle soit à la fois <strong>pratique</strong>, <strong>flexible</strong> et <strong>immersive</strong>. 
+            Notre boutique s’adresse aussi bien aux particuliers qu’aux entreprises souhaitant former leurs collaborateurs.
+        </p>
+        <p>
+            Nous nous appuyons sur des méthodes pédagogiques innovantes, comme la méthode <em>Tokita</em>, un concept chinois ancestral où chaque trait graphique incarne une idée complète, permettant d’appréhender la complexité à travers des formes simples. 
+            Cette méthode, associée à des outils numériques de pointe, favorise une compréhension rapide, intuitive et durable des contenus.
+        </p>
+
+        <h2>Explorez nos services</h2>
+        <p>Dans notre boutique, vous pouvez :</p>
+        <ul>
+            <li>Consulter notre <strong>catalogue de formations</strong> par thème ou par niveau</li>
+            <li>Ajouter des formations à votre <strong>panier</strong> en quelques clics</li>
+            <li>Créer un <strong>compte personnel</strong> pour suivre votre progression</li>
+            <li>Accéder à vos <strong>formations achetées</strong> à tout moment via votre espace utilisateur</li>
+            <li>Bénéficier d’un <strong>accompagnement personnalisé</strong> selon vos objectifs</li>
+        </ul>
+        <p>
+            Que vous souhaitiez évoluer dans votre carrière, lancer un nouveau projet ou simplement apprendre par passion, <strong>LEFA</strong> vous accompagne dans chaque étape de votre parcours.
+        </p>
+    </div>
+{% endblock %}

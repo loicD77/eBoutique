@@ -1,0 +1,199 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue des Formations - LEFA{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #002147;
+        color: white;
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        color: white;
+        margin-right: 15px;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #ffd700;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+
+    .category-filters {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .category-filters a {
+        background-color: #e0e0e0;
+        color: #333;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 5px;
+        display: inline-block;
+        border-radius: 20px;
+        font-size: 0.95rem;
+        transition: background-color 0.3s;
+    }
+
+    .category-filters a:hover,
+    .category-filters .active {
+        background-color: #0055a5;
+        color: white;
+    }
+
+    .catalogue-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+        color: #002147;
+        margin-bottom: 8px;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .card-price {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: #0055a5;
+    }
+
+    .btn {
+        background-color: #0055a5;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #003c7a;
+    }
+
+    footer {
+        background-color: #002147;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+        margin-top: 50px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<header>
+    <h1>LEFA - Catalogue des Formations</h1>
+    <nav>
+        <a href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('contact') }}">Contact</a>
+        <a href="{{ path('about') }}">À propos</a>
+        <a href="{{ path('app_catalogue') }}">Toutes les formations</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    {% if selectedCategory is defined %}
+        <h2 style="margin-bottom: 15px;">Catégorie : {{ selectedCategory.name }}</h2>
+    {% endif %}
+
+    <div class="category-filters">
+        {% for cat in categories %}
+            <a href="{{ path('app_catalogue_par_categorie', {'id': cat.id}) }}"
+            class="{{ selectedCategory is defined and selectedCategory.id == cat.id ? 'active' : '' }}">
+                {{ cat.name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    {% if formations is empty %}
+        <p>Aucune formation trouvée pour cette catégorie.</p>
+    {% else %}
+        <div class="catalogue-grid">
+            {% for formation in formations %}
+                <div class="card">
+                   <img src="{{ asset(formation.imageUrl) }}" alt="{{ formation.title }}">
+                   <div class="card-body">
+                        <h2 class="card-title">{{ formation.title }}</h2>
+                        <p class="card-text">{{ formation.description|slice(0, 120) ~ '...' }}</p>
+                        <div class="card-price">{{ formation.price }} €</div>
+                        <a href="{{ path('panier_ajouter', {'id': formation.id}) }}" class="btn">Ajouter au panier</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>
+
+<footer>
+    &copy; {{ "now"|date("Y") }} LEFA - Tous droits réservés
+</footer>
+{% endblock %}

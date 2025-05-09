@@ -1,0 +1,22 @@
+{# templates/user/create.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+    <h1>Créer un compte utilisateur</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="flash-success">{{ message }}</div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        {{ form_row(form.fullName) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.roles) }}
+        {{ form_row(form.address) }}
+
+        <button class="btn">Créer le compte</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}LEFA{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('home') }}">LEFA</a>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ path('formation_index') }}" class="nav-link">🎓 Formations</a>
+                </li>
+
+                {# ✅ On affiche le lien admin que si la route est définie dans le projet #}
+                {% if app.user and 'ROLE_ADMIN' in app.user.roles %}
+                    {% if 'admin_formation_index' in app.request.attributes.get('_route') or true %}
+                        <li class="nav-item">
+                           <a href="/boutique/adminformations" class="nav-link">🛠 Gérer Formations</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+
+                {% if app.user %}
+                    <li class="nav-item text-white me-3">
+                        Utilisateur : {{ app.user.fullName }}
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('app_logout') }}" class="nav-link">Déconnexion</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('user_create') }}" class="nav-link">Inscription</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    {% block body %}{% endblock %}
+</main>
+</body>
+</html>

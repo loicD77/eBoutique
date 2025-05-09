@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos - LEFA{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #002147;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            font-size: 2rem;
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #002147;
+            color: white;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0055a5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-home:hover {
+            background-color: #003d7a;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>À propos de LEFA</h1>
+        <nav>
+            <a href="{{ path('home') }}">Accueil</a>
+            <a href="{{ path('contact') }}">Contact</a>
+            <a href="{{ path('about') }}">À propos</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Notre histoire</h2>
+        <p>
+            Fondée par des passionnés de l’excellence académique, LEFA a pour vocation de rendre les formations d'élite accessibles au plus grand nombre.
+            Inspirés par les plus grandes institutions internationales, nous avons créé une plateforme qui met l’excellence à portée de clic.
+        </p>
+
+        <h2>Notre mission</h2>
+        <p>
+            Accompagner chaque étudiant, chaque professionnel dans la construction d'un avenir ambitieux, 
+            grâce à des formations rigoureuses, sélectionnées pour leur qualité et leur impact.
+        </p>
+
+        <h2>Nos valeurs</h2>
+        <p>
+            Excellence, intégrité, innovation et accessibilité.  
+            Chaque programme que nous proposons est pensé pour développer tout le potentiel de nos apprenants, dans un environnement d’apprentissage bienveillant et exigeant.
+        </p>
+
+        <a href="{{ path('home') }}" class="btn-home">← Retour à l'accueil</a>
+    </div>
+
+    <footer>
+        &copy; {{ "now"|date("Y") }} LEFA - Tous droits réservés
+    </footer>
+{% endblock %}
