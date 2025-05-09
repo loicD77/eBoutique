@@ -1,7 +1,7 @@
 # Projet LEFA – Loïc Darras  
 Licence Pro Projet Web et Mobile (L3) – Sorbonne Université  
 **Mai 2025**
-
+github : https://github.com/loicD77/eBoutique
 ---
 
 ## Présentation
@@ -240,6 +240,4 @@ On pourra modifier (edit de adminformations ), ajouter (new) et supprimer (code 
 
 **Loïc Darras**  
 Licence Pro Projet Web et Mobile, Sorbonne Université  
-
-
 
