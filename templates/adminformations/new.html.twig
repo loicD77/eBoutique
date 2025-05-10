@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter une formation{% endblock %}
+{% block title %}Nouvelle Formation{% endblock %}
 
 {% block body %}
-<h1>➕ Ajouter une formation</h1>
+    <h1>Créer une formation</h1>
 
-{{ form_start(form) }}
-    {{ form_row(form.title) }}
-    {{ form_row(form.description) }}
-    {{ form_row(form.price) }}
-    {{ form_row(form.imageUrl) }}
-    {{ form_row(form.category) }}
+    {{ form_start(form) }}
 
-    <button class="btn btn-primary">Créer</button>
-{{ form_end(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.imageUrl) }}
+        
+        {# 🏷️ Sélection de la catégorie (menu déroulant) #}
+        {{ form_row(form.category) }}
 
-<a href="{{ path('admin_formation_index') }}" class="btn btn-link mt-3">← Retour</a>
+        <button class="btn btn-primary mt-3">Créer</button>
+
+    {{ form_end(form) }}
 {% endblock %}

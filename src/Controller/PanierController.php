@@ -48,6 +48,7 @@ class PanierController extends AbstractController
 
         $panier[$id] = ($panier[$id] ?? 0) + 1;
         $session->set('panier', $panier);
+        $session->set('panier_count', array_sum($panier)); 
 
         return $this->redirectToRoute('panier_index');
     }
@@ -67,6 +68,7 @@ class PanierController extends AbstractController
         }
 
         $session->set('panier', $panier);
+        $session->set('panier_count', array_sum($panier)); 
         return $this->redirectToRoute('panier_index');
     }
 
@@ -74,6 +76,7 @@ class PanierController extends AbstractController
     public function vider(SessionInterface $session): Response
     {
         $session->remove('panier');
+        $session->set('panier_count', 0);
         $this->addFlash('success', '🗑️ Votre panier a été vidé.');
         return $this->redirectToRoute('panier_index');
     }

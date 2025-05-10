@@ -3,7 +3,7 @@
 {% block title %}Gestion des formations{% endblock %}
 
 {% block body %}
-<h1>🛠 Gérer les formations</h1>
+<h1>Gérer les formations</h1>
 
 <table class="table table-bordered">
     <thead class="table-dark">
@@ -23,11 +23,11 @@
             <td>{{ formation.category.name }}</td>
             <td>{{ formation.price }} €</td>
             <td>
-                <a href="{{ path('admin_formation_edit', {id: formation.id}) }}" class="btn btn-sm btn-primary">✏️ Modifier</a>
-                <form method="post" action="{{ path('admin_formation_delete', {id: formation.id}) }}" style="display:inline-block;" onsubmit="return confirm('Confirmer la suppression ?');">
+                <a href="{{ path('admin_formation_edit', {id: formation.id}) }}" class="btn btn-sm btn-dark">Modifier</a>
+                    <form method="post" action="{{ path('admin_formation_delete', {id: formation.id}) }}" style="display:inline-block;" onsubmit="return confirm('Confirmer la suppression ?');">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formation.id) }}">
-                    <button class="btn btn-sm btn-danger">🗑 Supprimer</button>
+                    <button class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
             </td>
         </tr>
@@ -37,5 +37,5 @@
     </tbody>
 </table>
 
-<a href="{{ path('admin_formation_new') }}" class="btn btn-success mt-3">➕ Ajouter une formation</a>
+<a href="{{ path('admin_formation_new') }}" class="btn btn-success mt-3">Ajouter une formation</a>
 {% endblock %}

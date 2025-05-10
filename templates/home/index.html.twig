@@ -99,11 +99,12 @@
     </header>
 
     <div class="container">
-        {% if app.user %}
-            <div class="alert alert-info text-end">
-                Bonjour, <strong>{{ app.user.getFullName() }}</strong> ! 
-            </div>
-        {% endif %}
+      {% if app.user %}
+    <div class="alert text-end" style="background-color: #000; color: #fff;">
+        Bonjour, <strong>{{ app.user.getFullName() }}</strong> !
+    </div>
+{% endif %}
+
 
         <h2>Notre mission</h2>
         <p>

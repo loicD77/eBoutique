@@ -25,6 +25,8 @@ class CategoryController extends AbstractController
     #[Route('/new', name: 'category_new')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
@@ -38,5 +40,37 @@ class CategoryController extends AbstractController
         return $this->render('category/new.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('/edit/{id}', name: 'category_edit')]
+    public function edit(Category $category, Request $request, EntityManagerInterface $em): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            return $this->redirectToRoute('category_index');
+        }
+
+        return $this->render('category/edit.html.twig', [
+            'form' => $form->createView(),
+            'category' => $category
+        ]);
+    }
+
+    #[Route('/delete/{id}', name: 'category_delete', methods: ['POST'])]
+    public function delete(Request $request, Category $category, EntityManagerInterface $em): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+            $em->remove($category);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('category_index');
     }
 }
