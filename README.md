@@ -39,7 +39,7 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 - Ajustement des quantités au panier avec le prix total : Ok avec frais de livraison en apparence
 - Message de commande faite: OK (avec adresse indiqué dessus)
 - Ajout d'un nouveau type d'article proposé: OK en tant qu'admin
-- Ajout d'une nouvelle catégorie : NON
+- Ajout d'une nouvelle catégorie : OUI (CRUD COMME FORMATION)
 - Inscription : OK
 
 
