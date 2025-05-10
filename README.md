@@ -35,7 +35,7 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 - Login (connexion): OK mais approche un peu limite (mets le message "Invalid credentials" en cas d'erreur de mot de passe)
 - Inscription : Ok mais sécurité et vérification affreuse selon mes mots (par exemple possible de mettre seulement "loic" comme mot de passe et "x" comme adresse.. )
 - Parcourir par catégorie : OK (On parcours à l'aide de routes avec un id à chaque thème)
-- Parcourir des articles : OK juste la possibilité de voir un titre et une légère decription de chaque formation
+- Parcourir des articles : OK juste la possibilité de voir un titre et une légère decription de chaque formation (les frais de livraison ne sont pas intégrer dans le total pour le moment)
 - Mise au panier : OK
 - Ajustement des quantités au panier avec le prix total : Ok avec frais de livraison en apparence
 - Message de commande faite: OK (avec adresse indiqué dessus)
