@@ -35,11 +35,11 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 - Inscription : Ok mais sécurité et vérification affreuse selon mes mots (par exemple possible de mettre seulement "loic" comme mot de passe et "x" comme adresse.. )
 - Parcourir par catégorie : OK (On parcours à l'aide de routes avec un id à chaque thème)
 - Parcourir des articles : OK juste la possibilité de voir un titre et une légère decription de chaque formation
-- Mise au panier : QUELQUES BUGS le compteur de la page d'accueil reste toujours à 0.
+- Mise au panier : OK
 - Ajustement des quantités au panier avec le prix total : Ok avec frais de livraison en apparence
 - Message de commande faite: OK (avec adresse indiqué dessus)
 - Ajout d'un nouveau type d'article proposé: OK en tant qu'admin
-- Ajout d'une nouvelle catégorie : OK même principe que le CRUD formations
+- Ajout d'une nouvelle catégorie : NON
 - Inscription : OK
 
 
@@ -86,6 +86,8 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 
 
  - Ici j'ai découvers et utilisé la méthode addFlash qui permet d'afficher des messages à l'utilisateur , on a un texte simple qui indique à l'utilisateur de se connecter ou s'inscrire, on redirige vers la route du login de ce projet avec **redirectRoRoute(`app_login`);**
+
+ - Par contre je n'ai pas réussi à dynamiser le compteur de la page s'accueil 
 
  - Dans ce code c'est la méthode POST qui permet de valider et vider le panier : elle écrit les paramètres URL dans la requêtes HTTP pour le serveur.
 
@@ -148,7 +150,7 @@ CREATE TABLE orders (
 #### User
 
 ```
-CREATE TABLE user (
+CREATE TABLE user 
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -193,7 +195,7 @@ CREATE TABLE user (
 
 
 ```
-<a href="/boutique/adminformations" class="nav-link">🛠 Gérer Formations</a>
+<a href="/boutique/adminformations" class="nav-link"> Gérer Formations</a>
 ```
 
 * Ici ça nous emmène automatiquement sur la page twig index de adminformations , 
@@ -235,11 +237,20 @@ On pourra modifier (edit de adminformations ), ajouter (new) et supprimer (code 
 ```  
 
 
-- Quand admin fonctionne j'ai donc  3 fichiers twig qui lui correspond (edit, index, new
+- Quand admin fonctionne j'ai donc  3 fichiers twig qui lui correspond (edit, index, new)
+
+
+### Explication des fonctionnalités
+
+
+## A) Login
+La page de Login est sur la page suivante : **emplates\security\login.html.twig**
+
+- Le twig est caractérisé par  **{{ app.user.email }}. ,{{ path('app_login') et {{ path('user_create') }}**
 
 
 
-### 3) catalogue
+- **La suite actualisée est sur github !**
 
 
 **Loïc Darras**  
