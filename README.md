@@ -166,7 +166,7 @@ CREATE TABLE user
 ```
 
 - Le type de donné le plus compliqué à retenir pour ma part est DATETIME, je sais que VARCHAR EST L EQUIVALENT DE STRING 
-- roles est particulié avec JSON aussi
+- roles est particulié avec JSON aussi (je sais qu'il utilise également un système de "clé : valeur"
 
 
 ## III) Twig
