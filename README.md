@@ -507,6 +507,10 @@ La page de Login est sur la page suivante : **emplates\security\login.html.twig*
 
 - **La suite actualisée est sur github !**
 
+- path('app_login') est le chemin vers la page de connexion de mon application
+
+- path('user_create') est le chemin pour l'inscription
+
 
 **Loïc Darras**  
 Licence Pro Projet Web et Mobile, Sorbonne Université  
