@@ -503,7 +503,7 @@ La page de Login est sur la page suivante : **emplates\security\login.html.twig*
 
 - app.user renvoie l’objet User (entité App\Entity\User) de l’utilisateur connecté.
 
-- Donc, app.user.email appelle la méthode getEmail() de ton entité User.
+- Donc, app.user.email appelle la méthode getEmail() de mon entité User.
 
 - **La suite actualisée est sur github !**
 
