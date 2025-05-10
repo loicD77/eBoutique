@@ -169,6 +169,7 @@ CREATE TABLE user
 - roles est particulié avec JSON aussi (je sais qu'il utilise également un système de "clé : valeur")
 
 
+
 ## III) Twig
 
 
