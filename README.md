@@ -2,6 +2,7 @@
 Licence Pro Projet Web et Mobile (L3) – Sorbonne Université  
 **Mai 2025**
 github : https://github.com/loicD77/eBoutique
+hébergement : https://darras2.alwaysdata.net/boutique/
 ---
 
 ## Présentation
