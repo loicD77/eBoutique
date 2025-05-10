@@ -35,11 +35,11 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 - Inscription : Ok mais sécurité et vérification affreuse selon mes mots (par exemple possible de mettre seulement "loic" comme mot de passe et "x" comme adresse.. )
 - Parcourir par catégorie : OK (On parcours à l'aide de routes avec un id à chaque thème)
 - Parcourir des articles : OK juste la possibilité de voir un titre et une légère decription de chaque formation
-- Mise au panier : OK
+- Mise au panier : QUELQUES BUGS le compteur de la page d'accueil reste toujours à 0.
 - Ajustement des quantités au panier avec le prix total : Ok avec frais de livraison en apparence
 - Message de commande faite: OK (avec adresse indiqué dessus)
 - Ajout d'un nouveau type d'article proposé: OK en tant qu'admin
-- Ajout d'une nouvelle catégorie : NON
+- Ajout d'une nouvelle catégorie : OK même principe que le CRUD formations
 - Inscription : OK
 
 
