@@ -250,7 +250,7 @@ La page de Login est sur la page suivante : **emplates\security\login.html.twig*
 
 
 
-- **La suite actualisée est sur github !**
+- **La suite actualisée sera sur github !**
 
 
 **Loïc Darras**  
