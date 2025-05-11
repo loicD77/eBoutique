@@ -5,7 +5,7 @@ Licence Pro Projet Web et Mobile (L3) – Sorbonne Université
 - alwaysdata : https://darras2.alwaysdata.net/boutique/
 ---
 
-## 🧭 Table des Matières
+## Table des Matières
 
 1. [Présentation](#présentation)  
 2. [Objectif de mon site "LEFA" fait sur Symfony](#objectif-de-mon-site-lefa-fait-sur-symfony)  
