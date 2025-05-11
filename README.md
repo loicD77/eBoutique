@@ -5,6 +5,29 @@ Licence Pro Projet Web et Mobile (L3) – Sorbonne Université
 - alwaysdata : https://darras2.alwaysdata.net/boutique/
 ---
 
+## 🧭 Table des Matières
+
+1. [Présentation](#présentation)  
+2. [Objectif de mon site "LEFA" fait sur Symfony](#objectif-de-mon-site-lefa-fait-sur-symfony)  
+3. [Résumé des fonctionnalités](#résumé-des-fonctionnalités)  
+4. [(HORS SUJET) Explication détaillée de mon code](#hors-sujet-explication-détaillée-de-mon-code)  
+   - [I) Controller](#i-controller)  
+     - [1) HomeController.php](#1-homecontrollerphp)  
+     - [2) OrderController.php](#2-ordercontrollerphp)  
+     - [3) PanierController.php](#3-paniercontrollerphp)  
+   - [II) Tables SQL](#ii-tables-sql)  
+     - [Category](#category)  
+     - [Formations](#formations)  
+     - [Orders](#orders)  
+     - [User](#user)  
+   - [III) Twig](#iii-twig)  
+     - [1) base.html.twig](#1-basehtmltwig)  
+     - [2) adminformations](#2-adminformations)  
+5. [Explication des fonctionnalités](#explication-des-fonctionnalités)  
+   - [A) Login](#a-login)  
+6. [Auteur](#auteur)
+
+
 ## Présentation
 
 LEFA est une plateforme Symfony de vente de formations en ligne, développée dans le cadre de ma licence professionnelle. Ce projet représente pour moi un défi personnel et technique, entrepris malgré l'absence de stage et un niveau encore en apprentissage. J’y ai mis toute ma persévérance et ma volonté de progresser en développement web. (Il est vrai que j'ai utilisé l'IA pour générer du code et comprendre certains éléments mais j'ai essayé de comprendre mon code, voir la rubrique HORS SUJET ci-dessous)
