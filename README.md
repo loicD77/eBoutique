@@ -9,8 +9,8 @@ Licence Pro Projet Web et Mobile (L3) – Sorbonne Université
 
 1. [Présentation](#présentation)  
 2. [Objectif de mon site "LEFA" fait sur Symfony](#objectif-de-mon-site-lefa-fait-sur-symfony)  
-3. [Résumé des fonctionnalités](#résumé-des-fonctionnalités)  
-4. [(HORS SUJET) Explication détaillée de mon code](#hors-sujet-explication-détaillée-de-mon-code)  
+3. [Résumé des fonctionnalités](#résumé-des-fonctionnalités) 
+4. [Hors sujet : explication détaillée de mon code](#hors-sujet--explication-détaillée-de-mon-code)  
    - [I) Controller](#i-controller)  
      - [1) HomeController.php](#1-homecontrollerphp)  
      - [2) OrderController.php](#2-ordercontrollerphp)  
