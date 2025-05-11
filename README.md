@@ -7,7 +7,7 @@ Licence Pro Projet Web et Mobile (L3) – Sorbonne Université
 
 ## Présentation
 
-LEFA est une plateforme Symfony de vente de formations en ligne, développée dans le cadre de ma licence professionnelle. Ce projet représente pour moi un défi personnel et technique, entrepris malgré l'absence de stage et un niveau encore en apprentissage. J’y ai mis toute ma persévérance et ma volonté de progresser en développement web. ((Il est vrai que j'ai utilisé l'IA pour générer du code et comprendre certains éléments mais j'ai essayé de comprendre mon code, voir la rubrique HORS SUJET ci-dessous)
+LEFA est une plateforme Symfony de vente de formations en ligne, développée dans le cadre de ma licence professionnelle. Ce projet représente pour moi un défi personnel et technique, entrepris malgré l'absence de stage et un niveau encore en apprentissage. J’y ai mis toute ma persévérance et ma volonté de progresser en développement web. (Il est vrai que j'ai utilisé l'IA pour générer du code et comprendre certains éléments mais j'ai essayé de comprendre mon code, voir la rubrique HORS SUJET ci-dessous)
 
 ---
 
