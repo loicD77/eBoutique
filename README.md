@@ -61,7 +61,7 @@ J'ai tenté de créer un site sérieux de eboutique de e-learning spécialisé d
 - Parcourir des articles : OK juste la possibilité de voir un titre et une légère decription de chaque formation
 - Mise au panier : OK
 - Ajustement des quantités au panier avec le prix total : Ok avec frais de livraison en apparence
-- Message de commande faite: OK (avec adresse indiqué dessus)
+- Message de commande faite: OK (l'adresse n'est pas indiqué finalement je viens de me rendre compte, j'avais réussi pourtant mais modification involontaire)
 - Ajout d'un nouveau type d'article proposé: OK en tant qu'admin
 - Ajout d'une nouvelle catégorie : OUI
 - Inscription : OK
